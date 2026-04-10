@@ -53,7 +53,7 @@ function FloatingGeometry({ position, args, type }) {
 const services = [
   {
     title: "Premium Websites",
-    price: "Starting from ₹4,999",
+    price: "Starting from ₹5,999",
     description: "We build digital experiences that command attention. Zero templates. Every pixel, transition, and layout is uniquely engineered to convert standard traffic into high-ticket clients.",
     features: ["Bespoke animations", "Mobile responsive", "SEO architecture", "Sub-2s loads", "Secure endpoints", "Domain linking"],
     glow: "purple",
