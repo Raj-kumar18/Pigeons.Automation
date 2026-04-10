@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import CustomCursor from './components/CustomCursor';
 import ScrollProgress from './components/ScrollProgress';
+import WhatsAppButton from './components/WhatsAppButton';
 
 import Home from './pages/Home';
 import Services from './pages/Services';
@@ -29,6 +30,7 @@ export default function App() {
       <div className="noise-overlay"></div>
       <CustomCursor />
       <ScrollProgress />
+      <WhatsAppButton />
       <Navbar />
       <ScrollToTop />
       

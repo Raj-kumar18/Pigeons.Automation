@@ -251,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS (MARQUEE) */}
-      <section className="py-24 relative z-10 w-full overflow-hidden">
+      {/* <section className="py-24 relative z-10 w-full overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-purple-500/30 to-transparent"></div>
         <div className="mb-16 text-center">
           <span className="text-xs font-bold text-accentGlow uppercase tracking-[4px] mb-4 block">Social Proof</span>
@@ -295,7 +295,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA BANNER */}
       <section className="relative py-40 z-10 flex justify-center text-center overflow-hidden border-t-4 border-b-4 border-transparent">

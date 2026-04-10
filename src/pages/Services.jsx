@@ -66,21 +66,23 @@ const services = [
   },
   {
     title: "AI Agents",
-    price: "Starting from ₹7,999",
+    price: "Custom Pricing",
     description: "Deploy an army of autonomous conversational agents that never sleep. Fully tailored to your business knowledge base, booking leads securely at 3AM without missing a beat.",
     features: ["Custom LLM training", "Multi-platform", "24/7 autonomous", "CRM syncing", "Voice + Text variants", "Real-time logs"],
     glow: "magenta",
     id: 2,
-    accent: "text-pink-400"
+    accent: "text-pink-400",
+    isComingSoon: true
   },
   {
     title: "Automations",
-    price: "Starting from ₹5,999",
+    price: "Custom Pricing",
     description: "Stop bleeding time. We interlink your disparate software stacks into a single, cohesive workflow engine that operates completely hands-free.",
     features: ["Complex logic branching", "API integrations", "Scheduled execution", "Database routing", "Error catching", "Scalable limits"],
     glow: "purple",
     id: 3,
-    accent: "text-purple-400"
+    accent: "text-purple-400",
+    isComingSoon: true
   }
 ];
 
@@ -118,7 +120,7 @@ export default function Services() {
           {services.map((srv, index) => {
             const isEven = index % 2 !== 0;
             return (
-              <div key={srv.id} className={`flex flex-col md:flex-row gap-16 items-center ${isEven ? 'md:flex-row-reverse' : ''}`}>
+              <div key={srv.id} className={`flex flex-col md:flex-row gap-16 items-center ${isEven ? 'md:flex-row-reverse' : ''} ${srv.isComingSoon ? 'opacity-80 grayscale-[30%]' : ''}`}>
                 
                 {/* TEXT CONTENT */}
                 <motion.div 
@@ -128,11 +130,23 @@ export default function Services() {
                   transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
                   className="w-full md:w-1/2"
                 >
-                  <h2 className="font-display font-bold text-5xl md:text-6xl text-white mb-6 uppercase tracking-tight">{srv.title}</h2>
-                  
-                  <div className="inline-block px-5 py-2 bg-[#ffffff0a] backdrop-blur-md border border-white/10 rounded-full font-heading font-bold text-white mb-8 shadow-xl">
-                    <span className={srv.accent}>{srv.price}</span>
+                  <div className="flex items-center gap-4 mb-6">
+                    <h2 className="font-display font-bold text-5xl md:text-6xl text-white uppercase tracking-tight m-0">{srv.title}</h2>
+                    {srv.isComingSoon && (
+                      <span className="px-3 py-1 bg-white/10 text-white/70 text-xs font-bold uppercase tracking-widest rounded-full border border-white/20 backdrop-blur-md">Coming Soon</span>
+                    )}
                   </div>
+                  
+                  {!srv.isComingSoon && (
+                    <div className="inline-block px-5 py-2 bg-[#ffffff0a] backdrop-blur-md border border-white/10 rounded-full font-heading font-bold text-white mb-8 shadow-xl">
+                      <span className={srv.accent}>{srv.price}</span>
+                    </div>
+                  )}
+                  {srv.isComingSoon && (
+                    <div className="inline-block px-5 py-2 bg-[#ffffff05] backdrop-blur-md border border-white/5 rounded-full font-heading font-bold text-gray-500 mb-8">
+                      <span>{srv.price}</span>
+                    </div>
+                  )}
                   
                   <p className="text-xl font-body text-gray-400 mb-10 leading-relaxed max-w-lg">{srv.description}</p>
                   
@@ -140,9 +154,9 @@ export default function Services() {
                     {srv.features.map((feat, i) => (
                        <motion.div 
                          initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * i }} viewport={{ once:true }}
-                         key={feat} className="flex items-start gap-4"
+                         key={feat} className={`flex items-start gap-4 ${srv.isComingSoon ? 'opacity-50' : ''}`}
                        >
-                         <div className={`mt-1 flex-shrink-0 w-6 h-6 rounded flex items-center justify-center bg-white/5 border border-white/10 ${srv.accent}`}>
+                         <div className={`mt-1 flex-shrink-0 w-6 h-6 rounded flex items-center justify-center bg-white/5 border border-white/10 ${srv.isComingSoon ? 'text-gray-500' : srv.accent}`}>
                            <Check size={14} strokeWidth={3} />
                          </div>
                          <span className="font-body text-sm font-bold text-gray-300 uppercase tracking-widest">{feat}</span>
@@ -151,11 +165,16 @@ export default function Services() {
                   </div>
 
                   <MagneticElement strength={20}>
-                    <CTAButton variant="primary" className="rounded-full px-10 border-0 shadow-[0_0_30px_rgba(168,85,247,0.3)]">Request Proposal</CTAButton>
+                    {srv.isComingSoon ? (
+                      <button className="px-10 py-4 rounded-full border border-white/10 text-white/50 font-bold uppercase tracking-widest text-sm bg-white/5 cursor-not-allowed">Join Waitlist</button>
+                    ) : (
+                      <CTAButton variant="primary" className="rounded-full px-10 border-0 shadow-[0_0_30px_rgba(168,85,247,0.3)]">Request Proposal</CTAButton>
+                    )}
                   </MagneticElement>
                 </motion.div>
 
                 {/* 3D TILT CARD */}
+
                 <motion.div 
                   initial={{ opacity: 0, scale: 0.9, x: isEven ? -50 : 50 }}
                   whileInView={{ opacity: 1, scale: 1, x: 0 }}
