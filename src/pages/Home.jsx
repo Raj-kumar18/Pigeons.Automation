@@ -1,13 +1,12 @@
-import React, { Suspense, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, Shield, Zap, UserCheck, Activity, Cpu } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import useMousePosition from '../hooks/useMousePosition';
 import CTAButton from '../components/CTAButton';
 import GlassCard from '../components/GlassCard';
 import AnimatedText from '../components/AnimatedText';
 import MagneticElement from '../components/MagneticElement';
-
-const HeroScene = React.lazy(() => import('../three/HeroScene'));
 
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 40 },
@@ -25,6 +24,7 @@ const staggerContainer = {
 export default function Home() {
   const mouse = useMousePosition();
   const { scrollY } = useScroll();
+  const navigate = useNavigate();
 
   // Parallax transforms based on scroll
   const heroY = useTransform(scrollY, [0, 1000], [0, 250]);
@@ -49,11 +49,10 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className="relative w-full min-h-screen flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden z-10">
 
-        {/* Parallax 3D Background */}
-        <motion.div style={{ y: heroY, opacity: opacityFade }} className="absolute inset-0 w-full h-full z-0 pointer-events-none md:pointer-events-auto mix-blend-lighten">
-          <Suspense fallback={null}>
-            <HeroScene mouse={mouse} />
-          </Suspense>
+        {/* Ambient Glowing Background */}
+        <motion.div style={{ y: heroY, opacity: opacityFade }} className="absolute inset-0 w-full h-full z-0 pointer-events-none flex items-center justify-center mix-blend-lighten">
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] bg-purple-600/30 blur-[120px] md:blur-[180px] rounded-full mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }}></div>
+           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] md:w-[30vw] md:h-[30vw] bg-pink-500/20 blur-[100px] md:blur-[140px] rounded-full mix-blend-screen animate-pulse" style={{ animationDuration: '3s' }}></div>
         </motion.div>
 
         {/* CENTERED PREMIUM TYPOGRAPHY */}
@@ -81,15 +80,22 @@ export default function Home() {
               </motion.p>
             </div>
 
-            <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-16 pointer-events-auto">
+            <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-16 pointer-events-auto z-50">
               <MagneticElement strength={20}>
-                <CTAButton variant="primary" size="lg" className="rounded-full px-10 py-4 shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:shadow-[0_0_60px_rgba(219,39,119,0.5)] font-bold tracking-widest text-sm relative group overflow-hidden border border-white/10 hover:border-white/30 transition-all backdrop-blur-md bg-white/5">
+                <button 
+                  onClick={() => navigate('/contact')}
+                  className="rounded-full px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 font-bold text-white tracking-widest text-sm shadow-[0_0_40px_rgba(219,39,119,0.4)] hover:shadow-[0_0_60px_rgba(219,39,119,0.7)] transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden"
+                >
+                  <span className="absolute inset-0 w-full h-full bg-white/20 blur-md transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></span>
                   <span className="relative z-10">INITIALIZE AGENT</span>
-                </CTAButton>
+                </button>
               </MagneticElement>
               <MagneticElement strength={20}>
-                <button className="text-white/60 hover:text-white text-sm uppercase tracking-widest font-bold transition-colors flex items-center gap-2 pb-1 border-b border-transparent hover:border-white/50">
-                  <span>View Case Studies</span>
+                <button 
+                  onClick={() => navigate('/work')}
+                  className="rounded-full px-10 py-4 bg-transparent border border-white/20 hover:border-pink-500 hover:bg-pink-500/10 text-white font-bold tracking-widest text-sm transition-all duration-300 backdrop-blur-md hover:shadow-[0_0_30px_rgba(219,39,119,0.2)]"
+                >
+                  VIEW CASE STUDIES
                 </button>
               </MagneticElement>
             </motion.div>
