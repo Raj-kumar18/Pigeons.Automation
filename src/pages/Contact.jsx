@@ -214,9 +214,9 @@ export default function Contact() {
                   required
                 >
                   <option value="" disabled className="text-gray-500 bg-[#05050f]">Budget Range...</option>
-                  <option value="low" className="text-white bg-[#05050f]">₹15k - ₹50k</option>
-                  <option value="mid" className="text-white bg-[#05050f]">₹50k - ₹1.5L</option>
-                  <option value="high" className="text-white bg-[#05050f]">₹1.5L+</option>
+                  <option value="low" className="text-white bg-[#05050f]">₹6k - ₹13k</option>
+                  <option value="mid" className="text-white bg-[#05050f]">₹20k - ₹35L</option>
+                  <option value="high" className="text-white bg-[#05050f]">₹50k+</option>
                 </select>
               </div>
             </div>

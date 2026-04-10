@@ -51,8 +51,8 @@ export default function Home() {
 
         {/* Ambient Glowing Background */}
         <motion.div style={{ y: heroY, opacity: opacityFade }} className="absolute inset-0 w-full h-full z-0 pointer-events-none flex items-center justify-center mix-blend-lighten">
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] bg-purple-600/30 blur-[120px] md:blur-[180px] rounded-full mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }}></div>
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] md:w-[30vw] md:h-[30vw] bg-pink-500/20 blur-[100px] md:blur-[140px] rounded-full mix-blend-screen animate-pulse" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] md:w-[50vw] md:h-[50vw] bg-purple-600/30 blur-[120px] md:blur-[180px] rounded-full mix-blend-screen animate-pulse" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-[50vw] md:w-[30vw] md:h-[30vw] bg-pink-500/20 blur-[100px] md:blur-[140px] rounded-full mix-blend-screen animate-pulse" style={{ animationDuration: '3s' }}></div>
         </motion.div>
 
         {/* CENTERED PREMIUM TYPOGRAPHY */}
@@ -82,7 +82,7 @@ export default function Home() {
 
             <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row justify-center items-center gap-6 pt-16 pointer-events-auto z-50">
               <MagneticElement strength={20}>
-                <button 
+                <button
                   onClick={() => navigate('/contact')}
                   className="rounded-full px-10 py-4 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 font-bold text-white tracking-widest text-sm shadow-[0_0_40px_rgba(219,39,119,0.4)] hover:shadow-[0_0_60px_rgba(219,39,119,0.7)] transition-all duration-300 transform hover:-translate-y-1 relative group overflow-hidden"
                 >
@@ -91,7 +91,7 @@ export default function Home() {
                 </button>
               </MagneticElement>
               <MagneticElement strength={20}>
-                <button 
+                <button
                   onClick={() => navigate('/work')}
                   className="rounded-full px-10 py-4 bg-transparent border border-white/20 hover:border-pink-500 hover:bg-pink-500/10 text-white font-bold tracking-widest text-sm transition-all duration-300 backdrop-blur-md hover:shadow-[0_0_30px_rgba(219,39,119,0.2)]"
                 >
@@ -223,7 +223,7 @@ export default function Home() {
 
             <div className="absolute inset-0 p-10 flex flex-col justify-end z-20">
               <div className="overflow-hidden mb-2">
-                <h3 className="font-display font-bold text-4xl text-white transform translate-y-0 group-hover:-translate-y-4 transition-transform duration-500">OmniFlow Interface</h3>
+                <h3 className="font-display font-bold text-4xl text-white transform translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">OmniFlow Interface</h3>
               </div>
               <div className="flex gap-2 transform translate-y-0 group-hover:-translate-y-4 transition-transform duration-500 delay-75">
                 <span className="text-xs font-bold text-white uppercase tracking-wider bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full">React</span>
