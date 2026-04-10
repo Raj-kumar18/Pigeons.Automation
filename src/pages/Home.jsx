@@ -312,7 +312,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-pink-500 to-transparent"></div>
 
         <div className="max-w-4xl mx-auto px-6 relative z-10 w-full flex flex-col items-center">
-          <AnimatedText el="h2" text="Ready to build something real?" className="font-display font-bold text-6xl md:text-[80px] leading-none text-white mb-10 tracking-tighter drop-shadow-2xl" />
+          <AnimatedText el="h2" text="Ready to build something real?" className="font-display font-bold text-5xl md:text-[80px] leading-tight md:leading-none text-white mb-10 tracking-tighter drop-shadow-2xl" />
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}>
             <MagneticElement strength={40}>
               <button className="group relative px-12 py-6 bg-white overflow-hidden rounded-full font-bold text-black font-heading text-xl shadow-[0_0_50px_rgba(255,255,255,0.3)] hover:scale-105 transition-transform duration-300">

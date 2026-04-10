@@ -104,7 +104,7 @@ export default function Services() {
              </Canvas>
            </div>
            
-           <AnimatedText text="Capabilities" el="h1" className="font-display text-7xl md:text-[110px] font-bold text-white relative z-10 tracking-tighter drop-shadow-2xl mb-6" />
+           <AnimatedText text="Capabilities" el="h1" className="font-display text-5xl md:text-[110px] font-bold text-white relative z-10 tracking-tighter drop-shadow-2xl mb-6" />
            <motion.p 
               initial={{ opacity: 0, y: 20 }} 
               animate={{ opacity: 1, y: 0 }} 
@@ -130,10 +130,10 @@ export default function Services() {
                   transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
                   className="w-full md:w-1/2"
                 >
-                  <div className="flex items-center gap-4 mb-6">
-                    <h2 className="font-display font-bold text-5xl md:text-6xl text-white uppercase tracking-tight m-0">{srv.title}</h2>
+                  <div className="flex flex-col md:flex-row md:items-center gap-4 mb-6">
+                    <h2 className="font-display font-bold text-4xl md:text-6xl text-white uppercase tracking-tight m-0">{srv.title}</h2>
                     {srv.isComingSoon && (
-                      <span className="px-3 py-1 bg-white/10 text-white/70 text-xs font-bold uppercase tracking-widest rounded-full border border-white/20 backdrop-blur-md">Coming Soon</span>
+                      <span className="self-start px-3 py-1 bg-white/10 text-white/70 text-xs font-bold uppercase tracking-widest rounded-full border border-white/20 backdrop-blur-md">Coming Soon</span>
                     )}
                   </div>
                   
@@ -225,8 +225,8 @@ export default function Services() {
            className="mt-40 text-center py-32 border-t border-white/10 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-primary-gradient opacity-5 mix-blend-screen pointer-events-none"></div>
-          <h2 className="font-display text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight relative z-10">Not sure what you need?</h2>
-          <p className="text-gray-400 font-body text-xl mb-12 max-w-2xl mx-auto relative z-10 leading-relaxed">Book a free strategy session. We'll reverse-engineer your operations and show you exactly where premium web tech and custom AI will explode your revenue.</p>
+          <h2 className="font-display text-4xl md:text-7xl font-bold text-white mb-6 tracking-tight relative z-10">Not sure what you need?</h2>
+          <p className="text-gray-400 font-body text-xl mb-12 px-2 max-w-2xl mx-auto relative z-10 leading-relaxed">Book a free strategy session. We'll reverse-engineer your operations and show you exactly where premium web tech and custom AI will explode your revenue.</p>
           <MagneticElement strength={30}>
             <CTAButton variant="primary" size="lg" className="rounded-full relative z-10 text-lg px-12" onClick={() => window.location.href='/contact'}>Let's Talk Strategy</CTAButton>
           </MagneticElement>

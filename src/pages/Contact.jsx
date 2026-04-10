@@ -118,9 +118,9 @@ export default function Contact() {
             </Canvas>
           </div>
 
-          <div className="relative z-10 pointer-events-auto">
-            <h1 className="font-display font-bold text-6xl md:text-[90px] leading-[0.9] mb-8 text-white tracking-tighter drop-shadow-xl mix-blend-difference">Let's Build<br />The Future.</h1>
-            <p className="text-gray-400 font-body text-2xl mb-16 max-w-md leading-relaxed mix-blend-difference">
+          <div className="relative z-10 pointer-events-auto mt-10 md:mt-0">
+            <h1 className="font-display font-bold text-5xl md:text-[90px] leading-[1] md:leading-[0.9] mb-8 text-white tracking-tighter drop-shadow-xl mix-blend-difference">Let's Build<br />The Future.</h1>
+            <p className="text-gray-400 font-body text-xl md:text-2xl mb-16 max-w-md leading-relaxed mix-blend-difference">
               Drop us a line. We're ready to engineer your market dominance.
             </p>
 
@@ -148,9 +148,9 @@ export default function Contact() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           className="relative z-20"
         >
-          <form ref={formRef} className="space-y-8 bg-[#05050f]/60 backdrop-blur-2xl p-10 md:p-14 rounded-3xl border border-white/5 shadow-2xl" onSubmit={handleSubmit}>
+          <form ref={formRef} className="space-y-6 md:space-y-8 bg-[#05050f]/60 backdrop-blur-2xl p-6 md:p-14 rounded-3xl border border-white/5 shadow-2xl" onSubmit={handleSubmit}>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="relative group">
                 <input type="text" name="name" value={form.name} onChange={handleChange} className={inputStyles} placeholder="Your name" required />
               </div>
@@ -159,7 +159,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div className="relative group cursor-pointer">
                 <select name="project_type" value={form.project_type} onChange={handleChange} className={`${inputStyles} appearance-none cursor-pointer`} required>
                   <option value="" disabled className="text-gray-500 bg-[#05050f]">Project Type...</option>
