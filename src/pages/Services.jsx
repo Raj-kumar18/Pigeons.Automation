@@ -7,6 +7,7 @@ import CTAButton from '../components/CTAButton';
 import AnimatedText from '../components/AnimatedText';
 import GlassCard from '../components/GlassCard';
 import MagneticElement from '../components/MagneticElement';
+import { Link } from 'react-router-dom';
 
 function DynamicBackground() {
   const { scrollYProgress } = useScroll();
@@ -187,9 +188,12 @@ export default function Services() {
                         Join Waitlist
                       </button>
                     ) : (
-                      <CTAButton variant="primary" className="rounded-full px-8 md:px-10 border-0 shadow-[0_0_30px_rgba(168,85,247,0.3)]">
-                        Request Proposal
-                      </CTAButton>
+
+                      <Link to="/contact">
+                        <CTAButton variant="primary" className="rounded-full px-8 md:px-10 border-0 shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+                          Request Proposal
+                        </CTAButton>
+                      </Link>
                     )}
                   </MagneticElement>
                 </motion.div>

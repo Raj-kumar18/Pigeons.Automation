@@ -7,7 +7,7 @@ import CTAButton from '../components/CTAButton';
 import GlassCard from '../components/GlassCard';
 import AnimatedText from '../components/AnimatedText';
 import MagneticElement from '../components/MagneticElement';
-
+import { Link } from 'react-router-dom';
 const fadeUpVariant = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
@@ -168,7 +168,9 @@ export default function Home() {
             </motion.p>
             <motion.div variants={fadeUpVariant}>
               <MagneticElement strength={20}>
-                <CTAButton variant="ghost" className="rounded-full">Explore All Services</CTAButton>
+                <Link to="/work">
+                  <CTAButton variant="ghost" className="rounded-full">Explore All Services</CTAButton>
+                </Link>
               </MagneticElement>
             </motion.div>
           </motion.div>
@@ -317,7 +319,9 @@ export default function Home() {
             <MagneticElement strength={40}>
               <button className="group relative px-12 py-6 bg-white overflow-hidden rounded-full font-bold text-black font-heading text-xl shadow-[0_0_50px_rgba(255,255,255,0.3)] hover:scale-105 transition-transform duration-300">
                 <div className="absolute inset-0 bg-primary-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
-                <span className="relative z-10 group-hover:text-white transition-colors duration-500 tracking-wider">Start Project &rarr;</span>
+                <Link to="/contact">
+                  <span className="relative z-10 group-hover:text-white transition-colors duration-500 tracking-wider">Start Project &rarr;</span>
+                </Link>
               </button>
             </MagneticElement>
           </motion.div>
