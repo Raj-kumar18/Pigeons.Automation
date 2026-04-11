@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import GlassCard from '../components/GlassCard';
 import AnimatedText from '../components/AnimatedText';
+
+const GithubIcon = ({ size = 16, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path>
+  </svg>
+);
 
 const projects = [
   { id: 1, title: 'Dog Studio Clone', desc: 'Premium 3D web experience clone using Three.js to explore advanced rendering.', category: 'Websites', tags: ['Three.js', 'WebGL'], image: './dog.png', span: 'col-span-1 md:col-span-2 row-span-1', live: 'https://dogstudiio.netlify.app/' },
@@ -20,96 +27,117 @@ export default function Work() {
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <div className="w-full relative overflow-x-hidden pt-32 pb-20 min-h-screen bg-[#05050f]">
-      {/* Background Blobs */}
+    <div className="w-full relative overflow-x-hidden pt-32 pb-24 min-h-screen bg-[#000000]">
+      {/* Background Blobs - subtle and elegant */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[20%] left-[20%] w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full" />
+        <div className="absolute top-[10%] left-[50%] -translate-x-1/2 w-[800px] h-[600px] bg-purple-900/10 blur-[150px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center mb-16 pt-10">
-          <AnimatedText text="Our Work" el="h1" className="font-display text-5xl md:text-7xl font-bold text-white mb-6" />
-          <p className="text-gray-400 font-body text-lg max-w-2xl mx-auto">
-            Explore our portfolio of high-end web experiences and intelligent automated systems.
-          </p>
-        </div>
-
-        {/* FILTER TABS */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16 relative z-20">
-          {categories.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className="relative px-6 py-2 rounded-full font-heading font-bold text-sm transition-all"
-            >
-              {filter === cat && (
-                <motion.div
-                  layoutId="activeFilter"
-                  className="absolute inset-0 bg-primary-gradient z-0 rounded-full"
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-              )}
-              <span className={`relative z-10 ${filter === cat ? 'text-white' : 'text-gray-400 hover:text-white'}`}>
-                {cat}
-              </span>
-              {filter !== cat && <div className="absolute inset-0 bg-white/5 rounded-full z-0 pointer-events-none"></div>}
-            </button>
-          ))}
+        
+        {/* HEADER */}
+        <div className="mb-20 pt-10 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-white/10 pb-12">
+          <div className="md:w-2/3">
+            <h1 className="font-display text-5xl md:text-8xl font-bold text-white mb-6 tracking-tighter leading-tight">
+              Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-accent">Works.</span>
+            </h1>
+            <p className="text-gray-400 font-body text-xl max-w-xl leading-relaxed">
+              Explore our portfolio of high-end web experiences, intelligent automated systems, and premium Awwwards-winning interfaces.
+            </p>
+          </div>
+          
+          <div className="flex flex-col gap-2">
+            <span className="text-white/50 text-sm font-heading tracking-widest uppercase mb-2">Filter By</span>
+            <div className="flex flex-wrap gap-3">
+              {categories.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setFilter(cat)}
+                  className={`relative px-5 py-2.5 rounded-full font-heading text-sm font-medium transition-all duration-300 ${
+                    filter === cat 
+                    ? 'text-white border-transparent' 
+                    : 'text-gray-400 border border-white/10 hover:border-white/30 hover:text-white bg-transparent'
+                  }`}
+                >
+                  {filter === cat && (
+                    <motion.div
+                      layoutId="activeFilter"
+                      className="absolute inset-0 bg-primary-gradient rounded-full shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10">{cat}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* BENTO GRID */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-3 auto-rows-[300px] gap-6">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-3 auto-rows-[350px] gap-6 md:gap-8">
           <AnimatePresence mode="wait">
             {filteredProjects.map((project) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
                 key={project.id}
                 className={`${project.span} h-full`}
               >
-                <GlassCard className="group relative overflow-hidden h-full w-full rounded-2xl" glowColor="purple">
-                  {/* Image with improved visibility */}
+                <GlassCard className="group relative overflow-hidden h-full w-full rounded-3xl border border-white/5 bg-white/[0.02]" glowColor="purple">
+                  {/* Image Background */}
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-40 group-hover:scale-110 transition-all duration-700 ease-out"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-30 group-hover:scale-105 transition-all duration-700 ease-out"
                   />
 
-                  {/* Gradient: Darker at bottom for text readability, disappears on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
+                  {/* Complex Gradients for Depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-transparent opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-purple-900/40 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-all duration-500 z-10"></div>
 
-                  {/* Hover Purple Overlay */}
-                  <div className="absolute inset-0 bg-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-
-                  {/* Content */}
-                  <div className="absolute inset-0 p-8 flex flex-col justify-end z-20">
-                    <div className="flex gap-2 mb-3 transform transition-transform duration-500 group-hover:-translate-y-2">
+                  {/* Top Tags */}
+                  <div className="absolute top-0 left-0 w-full p-6 flex justify-between items-start z-20">
+                     <div className="flex flex-wrap gap-2">
                       {project.tags.map(tag => (
-                        <span key={tag} className="text-[10px] font-bold uppercase tracking-wider text-white bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1 rounded-full">
+                        <span key={tag} className="text-[10px] font-bold uppercase tracking-wider text-white bg-black/40 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-full shadow-lg">
                           {tag}
                         </span>
                       ))}
-                    </div>
+                     </div>
+                     <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/50 group-hover:text-white group-hover:bg-accent group-hover:border-accent transition-all duration-300 transform group-hover:rotate-45">
+                        <ArrowUpRight size={18} />
+                     </div>
+                  </div>
 
-                    <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-2 transform transition-transform duration-500 group-hover:-translate-y-2">
+                  {/* Bottom Content */}
+                  <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end z-20">
+                    <h3 className="font-display text-3xl font-bold text-white mb-2 transform transition-transform duration-500 group-hover:-translate-y-2">
                       {project.title}
                     </h3>
 
-                    <p className="font-body text-gray-200 text-sm line-clamp-2 max-w-md opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transform translate-y-4 group-hover:-translate-y-2 transition-all duration-500">
-                      {project.desc}
-                    </p>
-
-                    <div className="flex mt-4 overflow-hidden h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transform translate-y-8 group-hover:-translate-y-2 transition-all duration-500 delay-100">
-                      <button
-                        onClick={() => window.open(project.live, '_blank')}
-                        className="w-full py-3 bg-white text-black font-heading font-bold text-xs rounded-lg hover:bg-purple-500 hover:text-white transition-all shadow-xl"
-                      >
-                        VIEW LIVE PROJECT
-                      </button>
+                    <div className="overflow-hidden">
+                      <p className="font-body text-gray-300 text-sm max-w-md opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-24 transform translate-y-4 group-hover:-translate-y-0 transition-all duration-500 mb-4 ease-in-out">
+                        {project.desc}
+                      </p>
                     </div>
+
+                    <div className="w-full h-[1px] bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 mb-4"></div>
+
+                    <button
+                      onClick={() => window.open(project.live, '_blank')}
+                      className="flex items-center gap-2 group/btn text-white font-heading font-bold text-xs uppercase tracking-widest hover:text-accent transition-colors w-fit"
+                    >
+                      {project.live.includes('github') ? (
+                         <><GithubIcon size={16} /> View Repository</>
+                      ) : (
+                         <>View Live Project <ArrowUpRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" /></>
+                      )}
+                    </button>
                   </div>
                 </GlassCard>
               </motion.div>
