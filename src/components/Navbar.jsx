@@ -39,7 +39,7 @@ export default function Navbar() {
           
           <MagneticElement strength={30}>
             <Link to="/" className="flex items-baseline relative z-50 px-2 py-1">
-              <span className="font-heading font-bold text-xl tracking-tighter text-white">Pigeons.</span>
+              <span className="font-heading font-bold text-xl tracking-tighter text-white">Pigeons</span>
               <span className="font-heading font-bold text-xl tracking-tighter text-accentGlow">Automation</span>
             </Link>
           </MagneticElement>
