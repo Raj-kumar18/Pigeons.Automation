@@ -117,7 +117,7 @@ export default function Footer() {
                   <Mail size={18} className="mt-1 flex-shrink-0 text-purple-400/70 group-hover:text-purple-400 transition-colors" />
                   <span>
                     <span className="block text-sm text-gray-500 mb-1 font-medium">Email Us</span>
-                    hello@pigeonsautomation.com
+                    pigeonsautomation@gmail.com
                   </span>
                 </a>
               </li>
