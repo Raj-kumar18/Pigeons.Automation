@@ -234,8 +234,8 @@ export default function Contact() {
                   required
                 >
                   <option value="" disabled className="text-gray-500 bg-[#0a0a1a]">Project Type...</option>
-                  <option value="web" className="text-white bg-[#0a0a1a]">Premium 3D Website</option>
-                  <option value="ai" className="text-white bg-[#0a0a1a]">AI Voice Agent</option>
+                  <option value="web" className="text-white bg-[#0a0a1a]">Premium Website / 3D</option>
+                  <option value="ai" className="text-white bg-[#0a0a1a]">AI Agents</option>
                   <option value="automation" className="text-white bg-[#0a0a1a]">Business Automation</option>
                   <option value="both" className="text-white bg-[#0a0a1a]">Multiple Services</option>
                 </select>

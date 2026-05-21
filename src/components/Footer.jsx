@@ -44,7 +44,7 @@ export default function Footer() {
           {/* Brand & Description */}
           <div className="lg:col-span-5 flex flex-col items-start pr-0 lg:pr-8">
             <Link to="/" onClick={scrollToTop} className="flex items-baseline mb-6 group cursor-pointer">
-              <span className="font-heading font-bold text-4xl tracking-tighter text-white group-hover:text-gray-200 transition-colors">Pigeons.</span>
+              <span className="font-heading font-bold text-4xl tracking-tighter text-white group-hover:text-gray-200 transition-colors">Pigeons</span>
               <span className="font-heading font-bold text-4xl tracking-tighter text-accentGlow drop-shadow-[0_0_15px_rgba(168,85,247,0.4)] transition-all duration-300">Automation</span>
             </Link>
             <p className="text-gray-400 font-body text-base leading-relaxed mb-8 max-w-md">
@@ -117,7 +117,7 @@ export default function Footer() {
                   <Mail size={18} className="mt-1 flex-shrink-0 text-purple-400/70 group-hover:text-purple-400 transition-colors" />
                   <span>
                     <span className="block text-sm text-gray-500 mb-1 font-medium">Email Us</span>
-                    hello@pigeonsautomation.com
+                    pigeonsautomation@gmail.com
                   </span>
                 </a>
               </li>
