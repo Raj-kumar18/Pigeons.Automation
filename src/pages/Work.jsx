@@ -18,6 +18,7 @@ const projects = [
   { id: 5, title: 'CodeVerse', desc: 'A modern Book Ecommerce Platform built using the MERN Stack, designed for book lovers.', category: 'Websites', tags: ['MERN', 'Full Stack'], image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80', span: 'col-span-1 md:col-span-2 row-span-2', live: 'https://github.com/Raj-kumar18/CodeVerse' },
   { id: 6, title: 'AI Assistant', desc: 'Assistant chat app in MERN stack using Google Gemini API.', category: 'AI Agents', tags: ['Gemini', 'MERN'], image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80', span: 'col-span-1 row-span-2', live: 'https://github.com/Raj-kumar18/AI-Assistant-Chat-App' },
   { id: 7, title: 'Memory Game', desc: 'Test your memory and sharpen your cognitive skills with our interactive Game!', category: 'Websites', tags: ['JS', 'Game'], image: 'https://images.unsplash.com/photo-1618042164219-62c820f10723?auto=format&fit=crop&w=800&q=80', span: 'col-span-1 md:col-span-2 row-span-1', live: 'https://memory-game-rho-six.vercel.app' },
+  { id: 8, title: 'KTfashion', desc: 'Premium school, college, and hotel uniform e-commerce platform featuring curated apparel catalogs.', category: 'Websites', tags: ['React', 'Tailwind', 'E-commerce'], image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80', span: 'col-span-1 row-span-1', live: 'https://kt-fashion.netlify.app/', github: 'https://github.com/Raj-kumar18/KT-Fashion' },
 ];
 
 export default function Work() {
@@ -128,16 +129,29 @@ export default function Work() {
 
                     <div className="w-full h-[1px] bg-white/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 mb-4"></div>
 
-                    <button
-                      onClick={() => window.open(project.live, '_blank')}
-                      className="flex items-center gap-2 group/btn text-white font-heading font-bold text-xs uppercase tracking-widest hover:text-accent transition-colors w-fit"
-                    >
-                      {project.live.includes('github') ? (
-                         <><GithubIcon size={16} /> View Repository</>
-                      ) : (
-                         <>View Live Project <ArrowUpRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" /></>
+                    <div className="flex flex-wrap items-center gap-4">
+                      {project.live && (
+                        <button
+                          onClick={() => window.open(project.live, '_blank')}
+                          className="flex items-center gap-2 group/btn text-white font-heading font-bold text-xs uppercase tracking-widest hover:text-accent transition-colors w-fit"
+                        >
+                          {project.live.includes('github') ? (
+                             <><GithubIcon size={16} /> View Repository</>
+                          ) : (
+                             <>View Live Project <ArrowUpRight size={16} className="group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" /></>
+                          )}
+                        </button>
                       )}
-                    </button>
+
+                      {project.github && (
+                        <button
+                          onClick={() => window.open(project.github, '_blank')}
+                          className="flex items-center gap-2 group/btn text-white/70 font-heading font-bold text-xs uppercase tracking-widest hover:text-accent transition-colors w-fit border-l border-white/20 pl-4"
+                        >
+                          <GithubIcon size={16} /> View Repository
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </GlassCard>
               </motion.div>
